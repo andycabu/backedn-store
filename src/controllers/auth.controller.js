@@ -7,7 +7,6 @@ config();
 
 export const register = async (req, res) => {
   const { userName, email, password1, password2 } = req.body;
-  console.log(userName, email, password1, password2);
 
   try {
     const userFound = await User.findOne({ email });
