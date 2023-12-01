@@ -6,8 +6,7 @@ export const favorites = async (req, res) => {
       user: req.params.userId,
     }).populate("product");
 
-    const products = favorites.map((favorite) => favorite.product);
-    res.json(products);
+    res.json(favorites);
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
@@ -22,7 +21,7 @@ export const favoriteAdd = async (req, res) => {
       "product"
     );
 
-    return res.json(favoriteProduct.product);
+    return res.json(favoriteProduct);
   } catch (err) {
     console.log("err", err);
     return res.status(400).json(err);
